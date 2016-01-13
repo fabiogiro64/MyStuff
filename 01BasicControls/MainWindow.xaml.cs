@@ -28,7 +28,7 @@ namespace _01BasicControls
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string test = "bubi";
+            string ritet = "bubi";
             this.Language = System.Windows.Markup.XmlLanguage.GetLanguage(Thread.CurrentThread.CurrentCulture.Name);
         }
     }
