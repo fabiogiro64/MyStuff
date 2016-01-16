@@ -18,10 +18,12 @@
         <Calendar Name="MyCalendar" Grid.Row="0" Grid.Column="0" Margin="5" />
         <TextBlock Name="lblCalendar" Grid.Row="0" Grid.Column="1" Height="100" Margin="10" Background="Beige"
                    Text="{Binding ElementName=MyCalendar,Path=SelectedDate, StringFormat=d}"/>
-        
+
+        <Button Grid.Row="1" Grid.Column="1" Name="btnGoPbar" Content="Aziona progressbar" Width="150" Height="50"
+                 Margin="10,103,534,211" Click="btnGoPbar_Click"/>
         <!--progressbar async-->
-        <Label Grid.Row="1" Grid.Column="1">My progressbar</Label>
+        <Label Grid.Row="1" Grid.Column="1" RenderTransformOrigin="30.452,0.467" Height="40" VerticalAlignment="Top">My progressbar</Label>
         <ProgressBar Grid.Row="1" Grid.Column="1" Name="pBar" Height="30" Value="0" Minimum="0" Maximum="5000"
-                     Margin="10,31,10,303" />
+                     Margin="0,63,10,271" />
     </Grid>
 </Window>
