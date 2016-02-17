@@ -23,5 +23,24 @@ namespace _01BasicControls
         {
             InitializeComponent();
         }
+
+       
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var qryList = from proc in System.Diagnostics.Process.GetProcesses()
+                      select proc.ProcessName;
+
+            lst01.ItemsSource = qryList;
+
+            var qryLView = from proc in System.Diagnostics.Process.GetProcesses()
+                      select proc;
+
+            lstView.ItemsSource = qryLView;
+        }
+
+        private void MyCalendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

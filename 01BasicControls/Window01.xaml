@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_01BasicControls"
         mc:Ignorable="d"
-        Title="Window01" Height="600" Width="800">
+        Title="Window01" Height="600" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="284*"/>
+            <RowDefinition Height="145*"/>
+            <RowDefinition Height="140*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -20,18 +21,57 @@
             <GroupBox.Header>
                 <TextBlock Text="Gruppo di opzioni" />
             </GroupBox.Header>
-            <StackPanel Margin="10">
+            <StackPanel Margin="10,10,10,174">
                 <CheckBox Name="chkServizi" Content="Uso dei servizi di posizione" IsChecked="True" />
                 <RadioButton Name="rdbFirst" Content="Prima scelta"/>
                 <RadioButton Name="rdbSecond" Content="Seconda scelta"/>
             </StackPanel>
         </GroupBox>
         <Expander Name="expMain" Grid.Row="1" Header="Espandi per visualizzare gli altri" 
-                  Background="LightBlue" Margin="5" VerticalAlignment="Top">
+                  Background="LightBlue" Margin="5,5,5,0" VerticalAlignment="Top">
             <StackPanel>
                 <ComboBox Name="cmbExpand" Margin="10" />
                 <ListBox Name="lstExpand" Margin="10" Height="100" />
             </StackPanel>
         </Expander>
+
+        <ListBox Name="lst01" Grid.Column="1" VerticalAlignment="Top" Margin="15,15,15,0" >
+            <!--elementi semolici-->
+            <!--<ListBoxItem.Content>
+                    <StackPanel Background="Red">
+                        <TextBlock Text="Terzo elemento composto" Foreground="White"  Name="thirdItem"/>
+                        <Image Source="pack://siteoforigin:,,,/Resources/it_flag32.png" />
+                    </StackPanel>
+                </ListBoxItem.Content>
+            </ListBoxItem>-->
+        </ListBox>
+        <ListView x:Name="lstView" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" 
+                  Height="206" Margin="48,41,0,0" VerticalAlignment="Top" Width="292" Grid.RowSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Process ID">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Id}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Process name">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=ProcessName}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Calendar x:Name="MyCalendar" Grid.Column="0" Margin="10,121,185,0" 
+                  Height="120" VerticalAlignment="Top" SelectedDatesChanged="MyCalendar_SelectedDatesChanged" />
+
+        <TextBlock Name="lblCalendar" Margin="216,121,10,71" Background="Yellow" Grid.Column="0"
+                   Text="{Binding ElementName=MyCalendar,Path=SelectedDate, StringFormat=d}"/>
+        
     </Grid>
-    </Window>
+</Window>
